@@ -17,7 +17,7 @@ export const fetchCharacters = () => dispatch => {
         .then(res => {
             dispatch({
                 type: SUCCESS, 
-                payload: res.data
+                payload: res.data.results
             });
         })
         .catch(err => {
