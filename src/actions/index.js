@@ -12,12 +12,19 @@ export const FAIL = 'FAIL';
 
 export const fetchCharacters = () => dispatch => {
     dispatch({type: FETCH});
-        axios
+    axios
         .get(`https://swapi.co/api/people/`)
         .then(res => {
-            dispatch({type: SUCCESS, payload: res.data.results})
+            dispatch({
+                type: SUCCESS, 
+                payload: res.data
+            });
         })
         .catch(err => {
-            dispatch({type: FAIL, payload: 'These are not the characters you are looking for'})
+            console.log(err);
+            dispatch({
+                type: FAIL, 
+                payload: 'These are not the characters you are looking for'
+            });
         });
 }
